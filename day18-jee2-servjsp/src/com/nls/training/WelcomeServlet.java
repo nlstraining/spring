@@ -31,5 +31,13 @@ public class WelcomeServlet extends HttpServlet {
 		writer.println("<h3>hello this is from my first HttpServlet - Welcome ....</h3>");
 		}
 	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// this method is going to handle GET method of http requests
+			PrintWriter writer = response.getWriter();
+			for(int  i=1;i<10;i++){
+			writer.println("<h3>hello this is from my first HttpServlet - Welcome ....</h3>");
+			}
+		}
 
 }

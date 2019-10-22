@@ -15,16 +15,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class ConfigDemoServlet
- */
+
 public class ConfigDemoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ServletConfig config = null;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
+	
 	public ConfigDemoServlet() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -71,15 +67,25 @@ public class ConfigDemoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	
+	/*
+	 * container-> Context -> servlet and Config both are created at the same time
+	 *            pust Context to Config -> ServletConfig)
+	 *            
+	 *            pilot talks to ATC and it talks to other pilots
+	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
 		int count = 0;
-		ServletContext contxt = getServletConfig().getServletContext();
+		// root, application path, application context or web context
+		ServletContext contxt = config.getServletContext(); //getServletConfig().getServletContext();
             System.out.println(contxt);
 		int hits = Integer.parseInt(contxt.getInitParameter("requestcounts"));
+		
 		hits++;
-		contxt.setAttribute("requestcounts", hits);
+		System.out.println("context hits..."+ hits);
+		
 
 		try {
 
@@ -102,7 +108,7 @@ public class ConfigDemoServlet extends HttpServlet {
 				count++;
 				out.println(id + ":" + singer + ":" + title);
 				request.setAttribute("counter", count);
-               System.out.println(request.getAttribute("counter"));
+              /// System.out.println(request.getAttribute("counter"));
 			}
 //			out.println("<h3><font color='red'> " + hits + "</font></h3>");
 			out.close();

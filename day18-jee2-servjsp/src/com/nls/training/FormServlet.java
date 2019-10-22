@@ -3,6 +3,8 @@ package com.nls.training;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +20,14 @@ public class FormServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		          String uid = request.getParameter("uid");	      
-	              PrintWriter writer = response.getWriter();
-	              writer.println("<h3 align='center'>  Welcome to home page  " + uid  + "</h3>");      
+	          
+	              if(uid.equals("superman"))
+	              {
+	            	  // inter servlet communication
+	            	  
+	            	   ServletContext context = getServletConfig().getServletContext();
+	            	   RequestDispatcher dispatcher = context.getRequestDispatcher("/welcome");
+	            	   dispatcher.forward(request, response);
+	              }      
 	     	}
 }
