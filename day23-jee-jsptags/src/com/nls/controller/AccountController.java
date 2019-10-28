@@ -36,13 +36,13 @@ public class AccountController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("from account controller......");
-		AccountBean bean = (AccountBean) request.getAttribute("actbean");
+		AccountBean bean = (AccountBean) request.getAttribute("actBean");
 		if(bean != null){
 			
 			   double balance = bean.getBalance();
-			   bean.setBalance(balance + balance/2);
+			   bean.setBalance(balance + (balance/2));
 			   System.out.println(bean.getBalance());
-			   request.setAttribute("actbean", bean);
+			   request.setAttribute("actBean", bean);
 		}
 		RequestDispatcher dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/confirmation.jsp");
 		dispatcher.forward(request, response);
