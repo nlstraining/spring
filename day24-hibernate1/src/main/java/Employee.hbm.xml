@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.nlsinc.hib.Employee" table="nlsemp">
+
+		<id name="empid" > <!-- primary key -->
+			<generator class="identity" ></generator>
+		</id>
+		<property name="empname"></property>
+		<property name="salary"></property>
+	</class>
+
+</hibernate-mapping>
