@@ -1,0 +1,44 @@
+ @OneToMany(targetEntity=com.nlsinc.hib.Email.class, mappedBy="employee",fetch=FetchType.LAZY,orphanRemoval=true,cascade=CascadeType.ALL)
+	 @JoinColumn(name="emp_mailid")
+	 
+	 // For Bi-directinal mapping:
+	 @OneToMany(
+	 orphanRemoval=true,      when a parent record is deleted corresponding child records are deleted, not provided we have to delete those records manually
+	 fetch=FetchType.LAZY,  Fetch strategy - fetching employee data will not fetch mails from email, it will fetch only when we call getEmail() then at that time the fetch operation is performed, saves memory
+	 mappedBy="employee", 
+	 cascade=CascadeType.ALL
+	 ) 
+	  private List<Email> emaiList = new ArrayList<>();
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/
+	  https://vladmihalcea.com/the-best-way-to-map-a-many-to-many-association-with-extra-columns-when-using-jpa-and-hibernate/
