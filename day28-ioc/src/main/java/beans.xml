@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+		"http://www.springframework.org/dtd/spring-beans.dtd">
+	
+	<beans>
+	            <bean id="conSource" class="com.nlsinc.beans.ConnectionSource">
+	            
+	            </bean> 
+	            
+	            <bean id="product" class="com.nlsinc.beans.Product"></bean>
+	            
+	            <bean id="persist" class="com.nlsinc.beans.PerformPersistence" >
+	            
+	             <constructor-arg ref="conSource"></constructor-arg>
+	            </bean>    
+	
+	</beans>
+		
